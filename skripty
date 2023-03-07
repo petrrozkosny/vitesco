@@ -23,3 +23,22 @@ SUMX(
     ALL(data),
 --krok2: Funkce SUMX() scita sloupec [srazky] tabulky vracene funkci ALL()
 data[srazky])
+
+
+___________________________________________________
+
+04 suma srazek rok 2000 = 
+
+-- scenar 4: Rusim filtry vizualu a nastavuji nove, tj. pouziji
+-- kombinaci funkci SUMX(FILTER(ALL())), MINX(FILTER(ALL()))
+
+
+SUMX(
+    --krok2: Funkce FILTER() nastavuje filtr na tabulku vracenou funkci ALL()
+    -- a nasledne vraci tabulku
+    FILTER(
+    --krok1: Funkce ALL() vytvari kopii tabulky data zbavenou vsech filtru
+    ALL(data),data[rok] = 2000),
+    --krok3: Funkce SUMX() scita sloupec [srazky] tabulky vracene funkci
+    -- FILTER()
+    data[srazky])
