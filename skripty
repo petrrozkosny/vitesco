@@ -42,3 +42,17 @@ SUMX(
     --krok3: Funkce SUMX() scita sloupec [srazky] tabulky vracene funkci
     -- FILTER()
     data[srazky])
+    
+    _________________________________________________________
+    
+    05 suma srazek kumulativne = 
+-- YTD
+
+SUMX(
+    FILTER(
+        ALL(data),
+    data[rok] = SELECTEDVALUE(data[rok])
+    && data[mesic] <= SELECTEDVALUE(data[mesic])
+    && data[lokalita] IN  VALUES(data[lokalita])
+    ),
+data[srazky])
