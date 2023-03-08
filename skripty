@@ -56,3 +56,13 @@ SUMX(
     && data[lokalita] IN  VALUES(data[lokalita])
     ),
 data[srazky])
+_____________________________________
+08 minimalni datum v danem roce mesici a lokalite = 
+-- prebiram vsechny filtry vizualu, zadne nerusim, nenastavuji
+MIN(data[datum])
+_________________________________
+
+09 minimalni datum roku mesice lokality kdy prselo = 
+-- prselo znamena srazky vetsi 0
+-- prebirame filtry vizualu, zadne nerusime, pridavame dalsi
+MINX(FILTER(data,data[srazky] >0),data[datum])
