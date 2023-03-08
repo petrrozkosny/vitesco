@@ -113,3 +113,20 @@ data[srazky])
 RETURN IF(maximalni_srazky_mesice_roku_lokality = maximlani_srazky_roku_lokality,"ANO","NE")
 
 
+____________________________________
+
+14 max teplota barva = 
+
+-- maximalni teplota v danem roce a lokalite
+VAR max_rok_lokalita = MAX(data[maximalni_teplota])
+-- maximalni teplota ve vsech letech a dane 
+VAR max_lokalita = 
+
+MAXX(
+    FILTER(
+    ALL(data),
+    data[lokalita] IN VALUES(data[lokalita])),
+data[maximalni_teplota])
+
+RETURN
+IF(max_rok_lokalita = max_lokalita,"#D7004B")
