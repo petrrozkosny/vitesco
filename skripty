@@ -66,3 +66,15 @@ _________________________________
 -- prselo znamena srazky vetsi 0
 -- prebirame filtry vizualu, zadne nerusime, pridavame dalsi
 MINX(FILTER(data,data[srazky] >0),data[datum])
+
+_______________________________________
+
+10 minimalni datum maximalnich srazek v roce mesici a lokalite = 
+
+MINX(
+    FILTER(data,
+    -- rovna se maximalnim srazkam v danem roce, mesici, lokalite
+    data[srazky] = MAX(data[srazky])),
+data[datum])
+
+
