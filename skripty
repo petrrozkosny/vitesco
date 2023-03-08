@@ -130,3 +130,11 @@ data[maximalni_teplota])
 
 RETURN
 IF(max_rok_lokalita = max_lokalita,"#D7004B")
+
+_________________________________________________
+
+15 rok kontrola max teploty = 
+-- jestli je maximalni teplota v danem roce vyssi nez vybrana hodnota
+-- z posuvniku, tak "gold"
+
+IF(MAX(data[maximalni_teplota]) > teplota[Hodnota teplota],"gold")
