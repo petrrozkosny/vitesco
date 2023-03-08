@@ -78,3 +78,17 @@ MINX(
 data[datum])
 
 
+_____________________________________________________________
+
+11 kontrola srazek = 
+
+-- Jsou maximalni srazky v danem roce,mesici a lokalite
+-- maximalnimi srazkami za vsechny roky,mesice a lokalita
+IF(
+-- maximalni srazky v danem roce,mesici a lokalite 
+MAX(data[srazky])
+=
+-- maximalni srazky za vsechny roky, mesice a lokality
+MAXX(
+    ALL(data),
+data[srazky]),"Jsou maximalni","Nejsou maximalni")
