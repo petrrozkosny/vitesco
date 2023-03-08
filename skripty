@@ -92,3 +92,24 @@ MAX(data[srazky])
 MAXX(
     ALL(data),
 data[srazky]),"Jsou maximalni","Nejsou maximalni")
+
+____________________________________________
+
+12 největší v každém roce napříč měsíci = 
+-- maximální
+-- výsledek bude "ano","ne"
+
+VAR maximalni_srazky_mesice_roku_lokality = MAX(data[srazky])
+VAR rok  = SELECTEDVALUE(data[rok])
+VAR maximlani_srazky_roku_lokality =
+
+MAXX(
+    FILTER(
+    ALL(data),
+    data[rok] = rok
+    && data[lokalita] = SELECTEDVALUE(data[lokalita])),
+data[srazky])
+
+RETURN IF(maximalni_srazky_mesice_roku_lokality = maximlani_srazky_roku_lokality,"ANO","NE")
+
+
